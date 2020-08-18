@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/privacy">プリバシーポリシー</router-link>
+      <router-link to="/privacy">プリバシーポリシー</router-link> |
+      <router-link :to="{name: 'user', params: {id: 1}, query:{q: 'hogehoge'}}">ユーザー1</router-link>
     </div>
     <router-view/>
   </div>

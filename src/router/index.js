@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Privacy from '../views/Privacy.vue'
+import User from '../views/User.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/privacy',
     name: 'privacy',
     component: Privacy
+  },
+  {
+    path: '/user/:id',
+    name: 'user',
+    component: User
   }
 ]
 
