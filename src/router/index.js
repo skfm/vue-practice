@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Privacy from '../views/Privacy.vue'
-import User from '../views/User.vue'
 import FirstChild from '../views/user/FirstChild.vue'
 import SecondChild from '../views/user/SecondChild.vue'
 
@@ -25,12 +23,12 @@ Vue.use(VueRouter)
   {
     path: '/privacy',
     name: 'privacy',
-    component: Privacy
+    component: () => import('../views/Privacy.vue')
   },
   {
     path: '/user/:id',
     name: 'user',
-    component: User,
+    component: () => import('../views/User.vue'),
     children: [
       {
         path: 'first',
@@ -43,6 +41,10 @@ Vue.use(VueRouter)
         component: SecondChild
       }
     ],
+  },
+  {
+    path: '*',
+    redirect: '/',
   }
 ]
 
