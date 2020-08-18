@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Privacy from '../views/Privacy.vue'
 import User from '../views/User.vue'
+import FirstChild from '../views/user/FirstChild.vue'
+import SecondChild from '../views/user/SecondChild.vue'
 
 Vue.use(VueRouter)
 
@@ -28,7 +30,19 @@ Vue.use(VueRouter)
   {
     path: '/user/:id',
     name: 'user',
-    component: User
+    component: User,
+    children: [
+      {
+        path: 'first',
+        name: 'first',
+        component: FirstChild
+      },
+      {
+        path: 'second',
+        name: 'second',
+        component: SecondChild
+      }
+    ],
   }
 ]
 
