@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>{{ counter }}</h1>
+    <button @click="increment(20)">increment</button>
+    <button @click="asyncIncremrnt(10)">increment</button>
+    <h2>{{ cartItemsCount }}</h2>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import { mapState, mapMutations, mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
+  name: 'home',
+  computed: {
+    ...mapState({
+      message: 'message',
+      counter: 'counter',
+      cartItems: 'cartItems',
+    }),
+    ...mapGetters([
+      'cartItemsCount'
+    ]),
+  },
+  methods: {
+    ...mapMutations([
+      'increment'
+    ]),
+    ...mapActions({
+      asyncIncremrnt: 'increment'
+    }),
   }
 }
 </script>
