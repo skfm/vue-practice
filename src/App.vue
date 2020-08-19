@@ -6,7 +6,9 @@
       <router-link to="/privacy">プリバシーポリシー</router-link> |
       <router-link :to="{name: 'user', params: {id: 1}, query:{q: 'hogehoge'}}">ユーザー1</router-link>
     </div>
-    <router-view/>
+    <transition name="fade" mode="out-in">
+      <router-view/>
+    </transition>
   </div>
 </template>
 
@@ -30,6 +32,16 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 </style>
